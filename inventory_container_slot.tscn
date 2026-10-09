@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://c4f6pt25ef3pg"]
+
+[ext_resource type="Shader" uid="uid://ccu74ug7qbbyk" path="res://inventory_container_slot_searching.gdshader" id="1_twygg"]
+[ext_resource type="Script" uid="uid://ekpylhy3rx7i" path="res://inventory_container_slot.gd" id="1_utdxk"]
+[ext_resource type="PackedScene" uid="uid://b6ypfnruyjbfj" path="res://add_tooltip.tscn" id="2_afj4o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_raawr"]
+shader = ExtResource("1_twygg")
+shader_parameter/shine_color = Color(1, 0.7666667, 0, 1)
+shader_parameter/alpha_mult = 2.0
+
+[node name="InventoryContainerSlot" type="Control" unique_id=1686477896]
+custom_minimum_size = Vector2(64, 64)
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 128.0
+offset_bottom = 128.0
+mouse_filter = 1
+script = ExtResource("1_utdxk")
+
+[node name="Tooltip" parent="." unique_id=161959855 instance=ExtResource("2_afj4o")]
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1783280155]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Icon" type="TextureRect" parent="PanelContainer" unique_id=2142527925]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DiscoverShine" type="ColorRect" parent="PanelContainer" unique_id=2046109976]
+material = SubResource("ShaderMaterial_raawr")
+layout_mode = 2
+mouse_filter = 1

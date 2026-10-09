@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://baj4l1hyhmuk5"]
+
+[ext_resource type="Script" uid="uid://b2fg7butkvmv" path="res://inventory_container.gd" id="1_4w2tq"]
+
+[node name="InventoryContainer" type="PanelContainer" unique_id=1862255141]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_4w2tq")
+
+[node name="DiscoveryTimer" type="Timer" parent="." unique_id=373834221]
+autostart = true
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1441438039]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer" unique_id=1229162908]
+layout_mode = 2
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
+columns = 4
+
+[connection signal="timeout" from="DiscoveryTimer" to="." method="_on_discovery_timer_timeout"]
